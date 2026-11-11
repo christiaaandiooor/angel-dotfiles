@@ -44,7 +44,7 @@ if [ -d /usr/share/icons/Papirus ]; then
 fi
 
 # 3) cursor angel
-command -v magick >/dev/null && python3 ~/.config/angel-system/cursor/make-cursor.py >/dev/null && p "Cursor Angel-Cursor generado"
+command -v magick >/dev/null && python3 ~/.config/angel-system/cursor/make-cursor.py >/dev/null && bash ~/.config/angel-system/cursor/build-hyprcursor.sh >/dev/null && p "Cursor Angel-Cursor generado"
 
 # 4) modo noche automático
 systemctl --user daemon-reload && systemctl --user enable --now angel-noche.timer >/dev/null 2>&1 && p "Modo noche automático activado"
