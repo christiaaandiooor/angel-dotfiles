@@ -67,7 +67,6 @@ SUPER + W              Elegir wallpaper
 SUPER + SHIFT + A      Modo Ame / modo Angel ✧
 SUPER + G              Modo showcase ✨
 SUPER + SHIFT + D      Widgets del escritorio on/off
-SUPER + SHIFT + P      Mascota on/off
 SUPER + SHIFT + N      Luz nocturna on/off
 SUPER + SHIFT + V      Historial del portapapeles
 SUPER + PUNTO          Kaomojis (˘ω˘)

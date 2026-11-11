@@ -70,7 +70,6 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("~/.config/hypr/scripts/battery-watch.sh")          -- avisos de batería baja
   hl.exec_cmd("python3 ~/.config/hypr/widgets/angel-music.py")     -- widget de música (escritorio)
   hl.exec_cmd("python3 ~/.config/hypr/widgets/angel-desk.py")      -- widgets: reloj, clima, clases, etc.
-  hl.exec_cmd("python3 ~/.config/hypr/widgets/angel-pet.py")       -- mascota angelito
   hl.exec_cmd("hyprctl setcursor Angel-Cursor 24")
   hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme Angel-Cursor")
   hl.exec_cmd("gsettings set org.gnome.desktop.interface font-name 'Noto Sans 10'")
@@ -323,7 +322,6 @@ hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd("~/.config/angel-theme/theme.
 hl.bind(mainMod .. " + G",         hl.dsp.exec_cmd("~/.config/hypr/scripts/showcase.sh"))  -- ✨ modo showcase on/off
 hl.bind(mainMod .. " + Tab",       hl.dsp.exec_cmd("pkill -x rofi || ~/.config/hypr/scripts/overview.sh"))  -- 🪟 vista general
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("pkill -f widgets/angel-desk.py || python3 ~/.config/hypr/widgets/angel-desk.py"))  -- widgets on/off
-hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("pkill -f widgets/angel-pet.py || python3 ~/.config/hypr/widgets/angel-pet.py"))  -- mascota on/off
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("~/.config/hypr/scripts/cc.sh night"))  -- luz nocturna on/off
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a -f hex && notify-send '🎨 color copiado' \"$(wl-paste)\""))  -- gotero de color
 -- 📸 capturas (con notificación cute)
