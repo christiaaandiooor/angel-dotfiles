@@ -1,0 +1,37 @@
+/* 🎀 wlogout · angel theme */
+* { font-family: "JetBrainsMono Nerd Font", sans-serif; background-image: none; box-shadow: none; }
+
+window { background-color: rgba(255, 236, 247, 0.55); }
+
+button {
+    color: #5b3b6e;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: rgba(255, 245, 251, 0.85);
+    background-repeat: no-repeat;
+    background-position: center 40%;
+    background-size: 52%;
+    border: 2px solid rgba(255, 143, 200, 0.6);
+    border-radius: 28px;
+    margin: 10px;
+    transition: all 0.3s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+button:focus, button:hover {
+    color: #e25da4;
+    background-color: rgba(231, 219, 251, 0.95);
+    border-color: #ff8fc8;
+    background-size: 60%;
+    margin: 2px;
+}
+
+#lock     { background-image: image(url("icons-angel/lock.png")); }
+#logout   { background-image: image(url("icons-angel/logout.png")); }
+#suspend  { background-image: image(url("icons-angel/sleep.png")); }
+#reboot   { background-image: image(url("icons-angel/restart.png")); }
+#shutdown { background-image: image(url("icons-angel/power.png")); }
+#lock:hover     { background-image: image(url("icons-angel/lock-hover.png")); }
+#logout:hover   { background-image: image(url("icons-angel/logout-hover.png")); }
+#suspend:hover  { background-image: image(url("icons-angel/sleep-hover.png")); }
+#reboot:hover   { background-image: image(url("icons-angel/restart-hover.png")); }
+#shutdown:hover { background-image: image(url("icons-angel/power-hover.png")); }

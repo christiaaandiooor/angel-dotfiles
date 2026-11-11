@@ -1,0 +1,107 @@
+/* 🎀 rofi · angel theme */
+configuration {
+    modi: "drun,run,window";
+    show-icons: true;
+    icon-theme: "Papirus";
+    display-drun: "♡";
+    display-run: "";
+    display-window: "󰖯";
+    display-dmenu: "✧";
+    drun-display-format: "{name}";
+    font: "JetBrainsMono Nerd Font 12";
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+}
+
+* {
+    base:     #fff5fbe0;
+    surface:  #ffffff99;
+    pink:     #ff8fc8;
+    pinkdeep: #e25da4;
+    lav:      #c3a6f5;
+    text:     #5b3b6e;
+    dim:      #a98bbb;
+
+    background-color: transparent;
+    text-color: @text;
+}
+
+window {
+    width: 600px;
+    border: 2px;
+    border-color: @pink;
+    border-radius: 24px;
+    background-color: @base;
+    padding: 18px;
+}
+
+mainbox {
+    spacing: 14px;
+    children: [ banner, inputbar, listview ];
+}
+
+banner {
+    expand: false;
+    height: 150px;
+    border-radius: 16px;
+    background-image: url("~/Pictures/wallpapers/menu.jpg", width);
+}
+
+inputbar {
+    padding: 12px 16px;
+    border: 2px;
+    border-color: #ff8fc866;
+    border-radius: 16px;
+    background-color: @surface;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    text-color: @pinkdeep;
+    padding: 0px 12px 0px 0px;
+}
+
+entry {
+    placeholder: "¿Qué abrimos hoy? ♡";
+    placeholder-color: @dim;
+    cursor: text;
+}
+
+listview {
+    lines: 6;
+    columns: 1;
+    spacing: 6px;
+    scrollbar: false;
+    fixed-height: true;
+}
+
+element {
+    padding: 10px 14px;
+    border-radius: 14px;
+    background-color: transparent;
+}
+
+element normal.normal, element alternate.normal { background-color: transparent; }
+
+element selected.normal {
+    background-image: linear-gradient(to right, #ff8fc8, #c3a6f5);
+    text-color: #ffffff;
+}
+
+element-icon {
+    size: 28px;
+    margin: 0px 12px 0px 0px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+message {
+    padding: 10px;
+    border-radius: 12px;
+    background-color: @surface;
+}

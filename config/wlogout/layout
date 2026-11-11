@@ -1,0 +1,30 @@
+{
+    "label" : "lock",
+    "action" : "pidof hyprlock || hyprlock",
+    "text" : "Bloquear",
+    "keybind" : "l"
+}
+{
+    "label" : "logout",
+    "action" : "pw-play ~/.local/share/sounds/angel/bye.ogg; hyprctl dispatch 'hl.dsp.exit()'",
+    "text" : "Salir",
+    "keybind" : "e"
+}
+{
+    "label" : "suspend",
+    "action" : "systemctl suspend",
+    "text" : "Dormir",
+    "keybind" : "u"
+}
+{
+    "label" : "reboot",
+    "action" : "pw-play ~/.local/share/sounds/angel/bye.ogg; systemctl reboot",
+    "text" : "Reiniciar",
+    "keybind" : "r"
+}
+{
+    "label" : "shutdown",
+    "action" : "pw-play ~/.local/share/sounds/angel/bye.ogg; systemctl poweroff",
+    "text" : "Apagar",
+    "keybind" : "s"
+}

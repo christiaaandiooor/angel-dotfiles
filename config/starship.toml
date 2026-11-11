@@ -1,0 +1,92 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+# 🎀 starship · angel
+palette = "angel"
+add_newline = true
+
+format = """
+[](pink)\
+[ 󰫢 $username ](bg:pink fg:base bold)\
+[](fg:pink bg:lav)\
+$directory\
+[](fg:lav bg:blue)\
+$git_branch$git_status\
+[](fg:blue bg:base2)\
+$python$nodejs$java$rust$golang$c$dart\
+[](fg:base2)\
+$fill$cmd_duration$time
+$character"""
+
+[palettes.angel]
+base = "#fff5fb"
+base2 = "#f3e6f7"
+pink = "#ff8fc8"
+pinkdeep = "#e25da4"
+lav = "#c3a6f5"
+blue = "#8fcff7"
+text = "#5b3b6e"
+dim = "#a98bbb"
+
+[username]
+show_always = true
+format = "$user"
+
+[directory]
+style = "fg:text bg:lav"
+format = "[ 󰉋 $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+home_symbol = "󰋜 ~"
+
+[directory.substitutions]
+"Documents" = "󰈙 Documents"
+"Downloads" = " Downloads"
+"Pictures" = " Pictures"
+"Universidad" = "󰑴 Universidad"
+
+[git_branch]
+symbol = ""
+style = "bg:blue fg:text"
+format = "[ $symbol $branch ]($style)"
+
+[git_status]
+style = "bg:blue fg:pinkdeep bold"
+format = "[($all_status$ahead_behind )]($style)"
+
+[python]
+symbol = ""
+format = "[ $symbol ($version) ](bg:base2 fg:text)"
+[nodejs]
+symbol = ""
+format = "[ $symbol ($version) ](bg:base2 fg:text)"
+[java]
+symbol = ""
+format = "[ $symbol ($version) ](bg:base2 fg:text)"
+[rust]
+symbol = ""
+format = "[ $symbol ($version) ](bg:base2 fg:text)"
+[golang]
+symbol = ""
+format = "[ $symbol ($version) ](bg:base2 fg:text)"
+[c]
+symbol = ""
+format = "[ $symbol ($version) ](bg:base2 fg:text)"
+[dart]
+symbol = ""
+format = "[ $symbol ($version) ](bg:base2 fg:text)"
+
+[fill]
+symbol = " "
+
+[cmd_duration]
+min_time = 2000
+format = "[ 󱦟 $duration ](fg:dim)"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+format = "[ ♡ $time ](fg:pinkdeep)"
+
+[character]
+success_symbol = "[ ❯](bold fg:pink)"
+error_symbol = "[ ❯](bold fg:pinkdeep)"
+vimcmd_symbol = "[ ❮](bold fg:lav)"

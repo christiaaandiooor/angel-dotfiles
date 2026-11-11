@@ -1,0 +1,42 @@
+# 🎀 plymouth · angel
+Window.SetBackgroundTopColor(1.00, 0.96, 0.98);
+Window.SetBackgroundBottomColor(1.00, 0.88, 0.95);
+
+logo.image = Image("logo.png");
+logo.sprite = Sprite(logo.image);
+logo.x = Window.GetX() + Window.GetWidth() / 2 - logo.image.GetWidth() / 2;
+logo.y = Window.GetY() + Window.GetHeight() / 2 - logo.image.GetHeight() / 2 - 30;
+logo.sprite.SetPosition(logo.x, logo.y, 1);
+
+dot_img = Image("dot.png");
+for (i = 0; i < 3; i++) {
+  dots[i] = Sprite(dot_img);
+  dots[i].SetZ(2);
+}
+dots_y = logo.y + logo.image.GetHeight() + 40;
+dots_x = Window.GetX() + Window.GetWidth() / 2 - 32;
+
+t = 0;
+fun refresh() {
+  t++;
+  logo.sprite.SetY(logo.y + Math.Sin(t / 25) * 6);
+  for (i = 0; i < 3; i++) {
+    b = Math.Sin(t / 7 - i * 0.9);
+    if (b < 0) b = 0;
+    dots[i].SetPosition(dots_x + i * 24, dots_y - b * 12, 2);
+    dots[i].SetOpacity(0.45 + b * 0.55);
+  }
+}
+Plymouth.SetRefreshFunction(refresh);
+
+# por si algún día hay contraseña de disco
+fun display_password(prompt, bullets) {
+  txt = "";
+  for (i = 0; i < bullets; i++) txt += "♡";
+  pw.image = Image.Text(prompt + "  " + txt, 0.36, 0.23, 0.43);
+  pw.sprite = Sprite(pw.image);
+  pw.sprite.SetPosition(Window.GetX() + Window.GetWidth() / 2 - pw.image.GetWidth() / 2, dots_y + 50, 3);
+}
+Plymouth.SetDisplayPasswordFunction(display_password);
+fun display_normal() { pw.sprite.SetOpacity(0); }
+Plymouth.SetDisplayNormalFunction(display_normal);

@@ -1,0 +1,435 @@
+// 🎀 waybar · angel theme (arriba: barra · abajo: dock)
+[
+    {
+        "layer": "top",
+        "position": "top",
+        "height": 38,
+        "margin-top": 8,
+        "margin-left": 14,
+        "margin-right": 14,
+        "spacing": 6,
+        "reload_style_on_change": true,
+        "modules-left": [
+            "custom/angel",
+            "hyprland/workspaces",
+            "hyprland/window"
+        ],
+        "modules-center": [
+            "clock"
+        ],
+        "modules-right": [
+            "mpris",
+            "group/sys",
+            "pulseaudio",
+            "backlight",
+            "network",
+            "bluetooth",
+            "battery",
+            "tray",
+            "custom/power"
+        ],
+        "custom/angel": {
+            "format": "   ",
+            "tooltip-format": "Apps ✧ (click)  ·  atajos (click derecho)",
+            "on-click": "rofi -show drun",
+            "on-click-right": "~/.config/hypr/scripts/angel.sh keys"
+        },
+        "hyprland/workspaces": {
+            "format": "{icon}",
+            "format-icons": {
+                "active": "(≧◡≦)",
+                "urgent": "(°ロ°)!",
+                "1": "(˘ω˘)",
+                "2": "(•ᴗ•)",
+                "3": "ʕ•ᴥ•ʔ",
+                "4": "(◕‿◕)",
+                "5": "(ᵔᴥᵔ)",
+                "default": "(・ω・)"
+            },
+            "persistent-workspaces": {
+                "*": 5
+            },
+            "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+            "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'"
+        },
+        "hyprland/window": {
+            "format": "{}",
+            "max-length": 40,
+            "separate-outputs": true,
+            "rewrite": {
+                "": "(｡•ᴗ•｡) escritorio"
+            }
+        },
+        "clock": {
+            "format": "󰃰  {:%H:%M}",
+            "format-alt": "󰃭  {:%d/%m/%Y}",
+            "tooltip-format": "<tt>{calendar}</tt>",
+            "calendar": {
+                "mode": "month",
+                "weeks-pos": "",
+                "on-scroll": 1,
+                "format": {
+                    "months": "<span color='#e25da4'><b>{}</b></span>",
+                    "days": "<span color='#5b3b6e'>{}</span>",
+                    "weekdays": "<span color='#9b7fd6'><b>{}</b></span>",
+                    "today": "<span color='#ff5fae'><b><u>{}</u></b></span>"
+                }
+            },
+            "actions": {
+                "on-scroll-up": "shift_up",
+                "on-scroll-down": "shift_down"
+            }
+        },
+        "mpris": {
+            "format": "{status_icon} {title}",
+            "format-paused": "{status_icon} <i>{title}</i>",
+            "status-icons": {
+                "playing": "󰎈",
+                "paused": "󰏤",
+                "stopped": "󰓛"
+            },
+            "max-length": 28,
+            "tooltip-format": "{artist} — {title}",
+            "on-click": "playerctl play-pause",
+            "on-scroll-up": "playerctl next",
+            "on-scroll-down": "playerctl previous"
+        },
+        "group/sys": {
+            "orientation": "horizontal",
+            "drawer": {
+                "transition-duration": 400,
+                "transition-left-to-right": false
+            },
+            "modules": [
+                "cpu",
+                "memory",
+                "temperature"
+            ]
+        },
+        "cpu": {
+            "format": "󰻠 {usage}%",
+            "interval": 3,
+            "on-click": "kitty -e btop"
+        },
+        "memory": {
+            "format": "󰍛 {percentage}%",
+            "tooltip-format": "{used:0.1f} / {total:0.1f} GiB"
+        },
+        "temperature": {
+            "format": " {temperatureC}°",
+            "critical-threshold": 85
+        },
+        "pulseaudio": {
+            "format": "{icon} {volume}%",
+            "format-muted": "󰝟 Shh",
+            "format-icons": {
+                "headphone": "󰋋",
+                "default": [
+                    "󰕿",
+                    "󰖀",
+                    "󰕾"
+                ]
+            },
+            "on-click": "pavucontrol",
+            "on-click-right": "~/.config/hypr/scripts/angel.sh vol-mute",
+            "on-scroll-up": "~/.config/hypr/scripts/angel.sh vol-up",
+            "on-scroll-down": "~/.config/hypr/scripts/angel.sh vol-down"
+        },
+        "backlight": {
+            "format": "{icon} {percent}%",
+            "format-icons": [
+                "󰃞",
+                "󰃟",
+                "󰃠"
+            ],
+            "on-scroll-up": "~/.config/hypr/scripts/angel.sh bri-up",
+            "on-scroll-down": "~/.config/hypr/scripts/angel.sh bri-down"
+        },
+        "network": {
+            "format-wifi": "󰖩 {signalStrength}%",
+            "format-ethernet": "󰈀",
+            "format-disconnected": "󰖪 (；ω；)",
+            "tooltip-format-wifi": "{essid}  ·  {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
+            "on-click": "nm-connection-editor"
+        },
+        "bluetooth": {
+            "format": "󰂯",
+            "format-off": "󰂲",
+            "format-disabled": "",
+            "format-connected": "󰂱 {num_connections}",
+            "tooltip-format-connected": "{device_enumerate}",
+            "tooltip-format-enumerate-connected": "{device_alias}",
+            "on-click": "blueman-manager"
+        },
+        "battery": {
+            "states": {
+                "warning": 25,
+                "critical": 12
+            },
+            "format": "{icon} {capacity}%",
+            "format-charging": "󰂄 {capacity}%",
+            "format-plugged": "󰚥 {capacity}%",
+            "format-full": "󰁹 Llena ♡",
+            "format-icons": [
+                "󰂎",
+                "󰁻",
+                "󰁽",
+                "󰁿",
+                "󰂁",
+                "󰁹"
+            ],
+            "tooltip-format": "{timeTo}  ·  {power:.1f} W"
+        },
+        "tray": {
+            "icon-size": 16,
+            "spacing": 8
+        },
+        "custom/power": {
+            "format": "⏻",
+            "tooltip-format": "Apagar / bloquear ♡",
+            "on-click": "pkill wlogout || wlogout -b 5 -T 380 -B 380"
+        },
+        "name": "top"
+    },
+    {
+        "name": "dock",
+        "layer": "top",
+        "position": "bottom",
+        "height": 56,
+        "margin-bottom": 10,
+        "exclusive": true,
+        "spacing": 0,
+        "reload_style_on_change": true,
+        "modules-center": [
+            "group/dock"
+        ],
+        "group/dock": {
+            "orientation": "horizontal",
+            "modules": [
+                "custom/start",
+                "custom/sep",
+                "image#firefox",
+                "image#kitty",
+                "image#dolphin",
+                "image#code",
+                "image#spotify",
+                "image#discord",
+                "image#obsidian",
+                "custom/sep",
+                "wlr/taskbar",
+                "custom/min",
+                "custom/desk",
+                "custom/cava",
+                "custom/sep",
+                "clock#info",
+                "disk#info",
+                "network#info",
+                "bluetooth#info",
+                "pulseaudio#info",
+                "battery#info",
+                "custom/sep",
+                "custom/cc"
+            ]
+        },
+        "custom/start": {
+            "format": "    ",
+            "tooltip-format": "Apps ✧ nyarch",
+            "on-click": "pkill rofi || rofi -show drun",
+            "on-click-right": "~/.config/hypr/scripts/angel.sh keys"
+        },
+        "custom/sep": {
+            "format": "│",
+            "tooltip": false
+        },
+        "wlr/taskbar": {
+            "format": "{icon}",
+            "icon-size": 30,
+            "icon-theme": "Papirus",
+            "tooltip-format": "{title}",
+            "on-click": "activate",
+            "on-click-middle": "close",
+            "ignore-list": [
+                "Rofi",
+                "wlogout"
+            ],
+            "sort-by-app-id": false
+        },
+        "custom/cc": {
+            "tooltip-format": "Centro de control ✧",
+            "return-type": "json",
+            "exec-if": "which swaync-client",
+            "exec": "swaync-client -swb",
+            "format": "{icon}",
+            "format-icons": {
+                "notification": "󱅫",
+                "none": "󰂚",
+                "dnd-notification": "󰂛",
+                "dnd-none": "󰂛",
+                "inhibited-notification": "󱅫",
+                "inhibited-none": "󰂚",
+                "dnd-inhibited-notification": "󰂛",
+                "dnd-inhibited-none": "󰂛"
+            },
+            "on-click": "sleep 0.1 && swaync-client -t -sw",
+            "on-click-right": "swaync-client -d -sw",
+            "escape": true
+        },
+        "image#firefox": {
+            "path": "__HOME__/.config/waybar/dock-icons/firefox.png",
+            "size": 30,
+            "on-click": "setsid firefox >/dev/null 2>&1 &",
+            "interval": 86400
+        },
+        "image#kitty": {
+            "path": "__HOME__/.config/waybar/dock-icons/kitty.png",
+            "size": 30,
+            "on-click": "setsid kitty >/dev/null 2>&1 &",
+            "interval": 86400
+        },
+        "image#dolphin": {
+            "path": "__HOME__/.config/waybar/dock-icons/org.kde.dolphin.png",
+            "size": 30,
+            "on-click": "setsid dolphin >/dev/null 2>&1 &",
+            "interval": 86400
+        },
+        "image#code": {
+            "path": "__HOME__/.config/waybar/dock-icons/code.png",
+            "size": 30,
+            "on-click": "setsid code >/dev/null 2>&1 &",
+            "interval": 86400
+        },
+        "image#spotify": {
+            "path": "__HOME__/.config/waybar/dock-icons/spotify.png",
+            "size": 30,
+            "on-click": "setsid spotify >/dev/null 2>&1 &",
+            "interval": 86400
+        },
+        "image#discord": {
+            "path": "__HOME__/.config/waybar/dock-icons/discord.png",
+            "size": 30,
+            "on-click": "setsid discord >/dev/null 2>&1 &",
+            "interval": 86400
+        },
+        "image#obsidian": {
+            "path": "__HOME__/.config/waybar/dock-icons/obsidian.png",
+            "size": 30,
+            "on-click": "setsid obsidian >/dev/null 2>&1 &",
+            "interval": 86400
+        },
+        "clock#info": {
+            "format": "󰥔 {:%H:%M}",
+            "format-alt": "󰃭 {:%a %d %b}",
+            "tooltip-format": "<tt>{calendar}</tt>",
+            "calendar": {
+                "mode": "month",
+                "weeks-pos": "",
+                "on-scroll": 1,
+                "format": {
+                    "months": "<span color='#e25da4'><b>{}</b></span>",
+                    "days": "<span color='#5b3b6e'>{}</span>",
+                    "weekdays": "<span color='#9b7fd6'><b>{}</b></span>",
+                    "today": "<span color='#ff5fae'><b><u>{}</u></b></span>"
+                }
+            },
+            "actions": {
+                "on-click-right": "mode",
+                "on-scroll-up": "shift_up",
+                "on-scroll-down": "shift_down"
+            }
+        },
+        "disk#info": {
+            "path": "/",
+            "interval": 60,
+            "format": "󰋊 {free}",
+            "tooltip-format": "Disco ✧ {used} usados de {total} ({percentage_used}%)\nClick: menú de disco ♡ · click der: abrir archivos",
+            "states": {
+                "warning": 85,
+                "critical": 95
+            },
+            "on-click": "~/.config/hypr/scripts/disk-menu.sh",
+            "on-click-right": "setsid dolphin ~ >/dev/null 2>&1 &"
+        },
+        "network#info": {
+            "format-wifi": "󰖩 {essid}",
+            "format-ethernet": "󰈀 Cable",
+            "format-disconnected": "󰖪 Sin red",
+            "format-disabled": "󰖪 Off",
+            "max-length": 16,
+            "tooltip-format-wifi": "{essid} · {signalStrength}%  ·  {ipaddr}\n {bandwidthDownBytes}   {bandwidthUpBytes}\nclick: menú de wifi ♡ · click der: prender/apagar",
+            "tooltip-format-disconnected": "sin conexión (；ω；)\nclick: menú de wifi ♡ · click der: prender/apagar",
+            "on-click": "~/.config/hypr/scripts/wifi-menu.sh",
+            "on-click-right": "~/.config/hypr/scripts/angel.sh wifi-toggle"
+        },
+        "bluetooth#info": {
+            "format": "󰂯 On",
+            "format-off": "󰂲 Off",
+            "format-disabled": "󰂲 Off",
+            "format-connected": "󰂱 {device_alias}",
+            "max-length": 16,
+            "tooltip-format": "Bluetooth ✧ {status}\nClick: dispositivos · click der: prender/apagar",
+            "tooltip-format-connected": "{device_enumerate}\nclick: dispositivos · click der: prender/apagar",
+            "tooltip-format-enumerate-connected": "{device_alias}",
+            "tooltip-format-enumerate-connected-battery": "{device_alias} · 󰥉 {device_battery_percentage}%",
+            "on-click": "setsid blueman-manager >/dev/null 2>&1 &",
+            "on-click-right": "~/.config/hypr/scripts/angel.sh bt-toggle"
+        },
+        "pulseaudio#info": {
+            "format": "{icon} {volume}%",
+            "format-muted": "󰝟 Shh",
+            "format-icons": {
+                "headphone": "󰋋",
+                "default": [
+                    "󰕿",
+                    "󰖀",
+                    "󰕾"
+                ]
+            },
+            "on-click": "pavucontrol",
+            "on-click-right": "~/.config/hypr/scripts/angel.sh vol-mute",
+            "on-scroll-up": "~/.config/hypr/scripts/angel.sh vol-up",
+            "on-scroll-down": "~/.config/hypr/scripts/angel.sh vol-down",
+            "tooltip-format": "{desc} · {volume}%\nClick: mezclador · click der: silenciar · rueda: volumen"
+        },
+        "battery#info": {
+            "states": {
+                "warning": 25,
+                "critical": 12
+            },
+            "format": "{icon} {capacity}%",
+            "format-charging": "󰂄 {capacity}%",
+            "format-plugged": "󰚥 {capacity}%",
+            "format-full": "󰁹 100%",
+            "format-icons": [
+                "󰂎",
+                "󰁻",
+                "󰁽",
+                "󰁿",
+                "󰂁",
+                "󰁹"
+            ],
+            "tooltip-format": "{timeTo}  ·  {power:.1f} W"
+        },
+        "custom/min": {
+            "exec": "~/.config/hypr/scripts/minimize.sh status",
+            "return-type": "json",
+            "interval": 3,
+            "signal": 9,
+            "format": "{}",
+            "on-click": "~/.config/hypr/scripts/minimize.sh restore",
+            "on-click-right": "~/.config/hypr/scripts/minimize.sh restore-all"
+        },
+        "custom/cava": {
+            "exec": "~/.config/hypr/scripts/cava-bar.sh",
+            "format": "{}",
+            "tooltip": false,
+            "on-click": "playerctl play-pause",
+            "on-scroll-up": "playerctl next",
+            "on-scroll-down": "playerctl previous"
+        },
+        "custom/desk": {
+            "format": "󰍹",
+            "tooltip-format": "Ver escritorio ✧ (SUPER+D)\nClick otra vez para regresar todo",
+            "on-click": "~/.config/hypr/scripts/minimize.sh desktop"
+        }
+    }
+]

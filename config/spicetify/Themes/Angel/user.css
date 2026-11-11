@@ -1,0 +1,14 @@
+/* 🎀 spicetify · angel */
+:root { --border-radius-1: 14px; }
+.Root__top-container { background: var(--spice-main) !important; gap: 8px; padding: 8px; }
+.Root__nav-bar, .Root__main-view, .Root__right-sidebar, .Root__now-playing-bar {
+  border-radius: 20px !important; overflow: hidden;
+}
+.Root__main-view { box-shadow: 0 0 0 2px #ff8fc855; }
+.main-card-card, .main-entityHeader-image, .main-image-image { border-radius: 16px !important; }
+button[data-testid="play-button"] > span,
+.main-playButton-PlayButton > button > span { background-color: var(--spice-play-button) !important; color: #fff !important; }
+::-webkit-scrollbar-thumb { background: #ff8fc888 !important; border-radius: 8px; }
+.main-topBar-background { background-color: var(--spice-main) !important; }
+.main-nowPlayingBar-container { background: var(--spice-player) !important; }
+.x-progressBar-fillColor, .progress-bar__fg { background-color: var(--spice-progress-fg) !important; }

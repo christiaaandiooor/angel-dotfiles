@@ -1,0 +1,63 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "control-center-positionX": "right",
+  "control-center-positionY": "bottom",
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "layer-shell": true,
+  "cssPriority": "user",
+  "control-center-margin-top": 14,
+  "control-center-margin-bottom": 14,
+  "control-center-margin-right": 14,
+  "control-center-margin-left": 14,
+  "notification-2fa-action": true,
+  "notification-inline-replies": false,
+  "notification-icon-size": 48,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 200,
+  "notification-window-width": 380,
+  "timeout": 5,
+  "timeout-low": 2,
+  "timeout-critical": 0,
+  "fit-to-screen": false,
+  "control-center-width": 420,
+  "control-center-height": 760,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 220,
+  "hide-on-clear": false,
+  "hide-on-action": true,
+  "script-fail-notify": false,
+  "scripts": {
+    "angel-ding": {
+      "exec": "pw-play --volume 0.8 __HOME__/.local/share/sounds/angel/notify.ogg",
+      "app-name": "^(?!osd$).*$",
+      "run-on": "receive"
+    }
+  },
+  "widgets": ["label", "buttons-grid", "volume", "backlight", "mpris", "title", "dnd", "notifications"],
+  "widget-config": {
+    "label": { "max-lines": 1, "text": "Centro de control ✧" },
+    "title": { "text": "Notis ♡", "clear-all-button": true, "button-text": "Limpiar" },
+    "dnd": { "text": "No molestar (˘ω˘)" },
+    "mpris": { "image-size": 72, "image-radius": 14 },
+    "volume": { "label": "󰕾", "show-per-app": false },
+    "backlight": { "label": "󰃠" },
+    "buttons-grid": {
+      "actions": [
+        { "label": "󰖩", "type": "toggle", "command": "~/.config/hypr/scripts/cc.sh wifi",  "update-command": "~/.config/hypr/scripts/cc.sh wifi status" },
+        { "label": "󰂯", "type": "toggle", "command": "~/.config/hypr/scripts/cc.sh bt",    "update-command": "~/.config/hypr/scripts/cc.sh bt status" },
+        { "label": "󰖔", "type": "toggle", "command": "~/.config/hypr/scripts/cc.sh night", "update-command": "~/.config/hypr/scripts/cc.sh night status" },
+        { "label": "☾", "type": "toggle", "command": "~/.config/hypr/scripts/cc.sh ame", "update-command": "~/.config/hypr/scripts/cc.sh ame status" },
+        { "label": "󰅌", "command": "swaync-client -cp; ~/.config/hypr/scripts/clip.sh" },
+        { "label": "󰝟", "command": "~/.config/hypr/scripts/angel.sh vol-mute" },
+        { "label": "󰄀", "command": "swaync-client -cp; sleep 0.4; ~/.config/hypr/scripts/angel.sh shot-area" },
+        { "label": "󰒓", "command": "swaync-client -cp; nwg-look" },
+        { "label": "󰌾", "command": "swaync-client -cp; pidof hyprlock || hyprlock" },
+        { "label": "⏻", "command": "swaync-client -cp; wlogout -b 5 -T 380 -B 380" }
+      ]
+    }
+  }
+}

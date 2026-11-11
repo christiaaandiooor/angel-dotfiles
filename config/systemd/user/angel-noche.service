@@ -1,0 +1,6 @@
+[Unit]
+Description=Modo Ame automático (revisa si ya anocheció o amaneció)
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/angel-theme/theme.py tick

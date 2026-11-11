@@ -1,0 +1,21 @@
+/* 🎀 menús chiquitos del dock (wifi, disco) */
+@import "config.rasi"
+
+configuration { show-icons: false; }
+
+window {
+    width: 440px;
+    location: south;
+    anchor: south;
+    y-offset: -84px;
+    padding: 14px;
+    border-radius: 22px;
+}
+mainbox  { spacing: 10px; children: [ inputbar, message, listview ]; }
+inputbar { padding: 9px 14px; }
+entry    { placeholder: "Buscar… ♡"; }
+message  { padding: 10px 14px; border: 2px; border-color: #c3a6f555; border-radius: 16px; }
+textbox  { markup: true; }
+listview { lines: 8; fixed-height: false; dynamic: true; }
+element  { padding: 8px 12px; }
+element-text { markup: true; }

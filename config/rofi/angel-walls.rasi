@@ -1,0 +1,18 @@
+/* 🎀 selector de wallpapers */
+@import "config.rasi"
+
+configuration { show-icons: true; }
+
+window   { width: 900px; padding: 18px; border-radius: 24px; }
+mainbox  { spacing: 12px; children: [ inputbar, listview ]; }
+inputbar { padding: 9px 14px; }
+entry    { placeholder: "Elige un fondito… ♡"; }
+listview { columns: 3; lines: 2; spacing: 12px; fixed-height: true; flow: horizontal; }
+element  {
+    orientation: vertical;
+    padding: 8px;
+    spacing: 6px;
+    border-radius: 16px;
+}
+element-icon { size: 240px; horizontal-align: 0.5; border-radius: 12px; }
+element-text { horizontal-align: 0.5; vertical-align: 0.5; }

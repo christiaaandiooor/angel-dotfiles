@@ -1,0 +1,194 @@
+/* 🎀 swaync · angel theme */
+:root {
+  --cc-bg: rgba(255, 245, 251, 0.90);
+  --noti-border-color: rgba(255, 143, 200, 0.6);
+  --noti-bg: 255, 245, 251;
+  --noti-bg-alpha: 0.95;
+  --noti-bg-darker: rgb(253, 228, 242);
+  --noti-bg-hover: rgb(255, 225, 242);
+  --noti-bg-focus: rgba(255, 225, 242, 0.8);
+  --noti-close-bg: #ff8fc8;
+  --noti-close-bg-hover: #e25da4;
+  --text-color: #5b3b6e;
+  --text-color-disabled: #a98bbb;
+  --bg-selected: #ff8fc8;
+  --border-radius: 18px;
+  --notification-shadow: 0 2px 10px rgba(226, 93, 164, 0.15);
+  --mpris-album-art-overlay: rgba(255, 245, 251, 0.70);
+  --mpris-button-hover: rgba(255, 143, 200, 0.30);
+  --mpris-album-art-shadow: 0 2px 10px rgba(226, 93, 164, 0.15);
+}
+
+@define-color base     rgba(255, 245, 251, 0.90);
+@define-color card     rgba(255, 255, 255, 0.70);
+@define-color cardhov  rgba(255, 225, 242, 0.95);
+@define-color pink     #ff8fc8;
+@define-color pinkdeep #e25da4;
+@define-color lav      #c3a6f5;
+@define-color lavdeep  #9b7fd6;
+@define-color blue     #8fcff7;
+@define-color text     #5b3b6e;
+@define-color dim      #a98bbb;
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+    font-size: 13px;
+    color: @text;
+}
+
+/* ── notificaciones flotantes ── */
+.notification-row { outline: none; }
+.notification-row:focus, .notification-row:hover { background: transparent; }
+
+.notification {
+    background: @base;
+    border: 2px solid @pink;
+    border-radius: 18px;
+    margin: 6px 10px;
+    padding: 0;
+    box-shadow: 0 4px 14px rgba(226, 93, 164, 0.18);
+}
+.notification.low      { border-color: @lav; }
+.notification.critical { border-color: #ff5fae; background: rgba(255, 227, 240, 0.95); }
+
+.notification-content { padding: 10px 12px; }
+.notification-default-action, .notification-action {
+    background: transparent;
+    border: none;
+    border-radius: 18px;
+}
+.notification-default-action:hover, .notification-action:hover { background: @cardhov; }
+.notification-action {
+    margin: 0 6px 6px 6px;
+    border-radius: 12px;
+    background: @card;
+}
+
+.summary   { font-weight: bold; font-size: 14px; color: @pinkdeep; }
+.time      { color: @dim; font-size: 11px; margin-right: 24px; }
+.body      { color: @text; }
+.image     { border-radius: 12px; }
+
+.close-button {
+    background: @pink;
+    color: #fff;
+    border-radius: 100%;
+    min-width: 22px;
+    min-height: 22px;
+    margin: 8px;
+    padding: 0;
+    border: none;
+}
+.close-button:hover { background: @pinkdeep; }
+
+progressbar, progressbar trough { min-height: 8px; border-radius: 8px; }
+progressbar trough   { background: rgba(195, 166, 245, 0.25); border: none; }
+progressbar progress { background: linear-gradient(90deg, @pink, @lav); border-radius: 8px; border: none; }
+
+/* ── centro de control ── */
+.control-center {
+    background: @base;
+    border: 2px solid rgba(255, 143, 200, 0.65);
+    border-radius: 26px;
+    padding: 10px;
+}
+.control-center-list, .control-center-list-placeholder { background: transparent; }
+.control-center-list-placeholder { color: @dim; opacity: 0.8; }
+.control-center .notification { box-shadow: none; margin: 4px 6px; border-width: 1px; }
+
+/* título "centro de control" */
+.widget-label {
+    margin: 6px 10px 2px 10px;
+}
+.widget-label > label {
+    font-size: 18px;
+    font-weight: bold;
+    color: @pinkdeep;
+}
+
+/* botones rápidos */
+.widget-buttons-grid {
+    padding: 8px;
+    margin: 6px 8px;
+    border-radius: 20px;
+    background: @card;
+}
+.widget-buttons-grid > flowbox > flowboxchild > button {
+    background: rgba(243, 220, 251, 0.75);
+    border: none;
+    border-radius: 16px;
+    min-width: 72px;
+    min-height: 48px;
+    margin: 4px;
+    font-size: 20px;
+    transition: all 0.2s ease;
+}
+.widget-buttons-grid > flowbox > flowboxchild > button label { font-size: 20px; }
+.widget-buttons-grid > flowbox > flowboxchild > button:hover { background: @cardhov; }
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+    background: linear-gradient(135deg, @pink, @lav);
+}
+.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked label { color: #fff; }
+
+/* sliders */
+.widget-volume, .widget-backlight {
+    background: @card;
+    border-radius: 18px;
+    margin: 4px 8px;
+    padding: 6px 14px;
+}
+.widget-volume label, .widget-backlight label { font-size: 18px; color: @pinkdeep; }
+scale trough {
+    min-height: 10px;
+    border-radius: 10px;
+    background: rgba(195, 166, 245, 0.25);
+}
+scale highlight, scale trough highlight {
+    border-radius: 10px;
+    background: linear-gradient(90deg, @pink, @lav);
+}
+scale slider {
+    min-width: 18px;
+    min-height: 18px;
+    border-radius: 100%;
+    background: #fff;
+    border: 2px solid @pink;
+    box-shadow: none;
+}
+
+/* música */
+.widget-mpris { margin: 4px 8px; }
+.widget-mpris .widget-mpris-player {
+    border-radius: 18px;
+    margin: 4px 0;
+}
+.widget-mpris .widget-mpris-player .mpris-overlay { background-color: rgba(255, 245, 251, 0.72); border-radius: 18px; }
+.widget-mpris-title    { font-weight: bold; color: @pinkdeep; }
+.widget-mpris-subtitle { color: @dim; }
+.widget-mpris button   { background: transparent; border: none; border-radius: 12px; }
+.widget-mpris button:hover { background: @cardhov; }
+
+/* título de notis + limpiar */
+.widget-title {
+    margin: 10px 12px 2px 12px;
+}
+.widget-title > label { font-size: 15px; font-weight: bold; color: @lavdeep; }
+.widget-title > button {
+    background: @card;
+    border: 1px solid rgba(255, 143, 200, 0.5);
+    border-radius: 12px;
+    padding: 2px 12px;
+    color: @pinkdeep;
+}
+.widget-title > button:hover { background: @pink; color: #fff; }
+
+/* no molestar */
+.widget-dnd { margin: 4px 12px; }
+.widget-dnd > label { color: @lavdeep; font-weight: bold; }
+.widget-dnd > switch {
+    border-radius: 14px;
+    background: rgba(195, 166, 245, 0.35);
+    border: none;
+}
+.widget-dnd > switch:checked { background: linear-gradient(90deg, @pink, @lav); }
+.widget-dnd > switch slider { background: #fff; border-radius: 100%; border: none; }

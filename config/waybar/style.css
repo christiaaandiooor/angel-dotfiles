@@ -1,0 +1,269 @@
+/* 🎀 waybar · angel theme */
+@define-color base     rgba(255, 245, 251, 0.82);
+@define-color pill     rgba(255, 255, 255, 0.55);
+@define-color pink     #ff8fc8;
+@define-color pinkdeep #e25da4;
+@define-color lav      #c3a6f5;
+@define-color lavdeep  #9b7fd6;
+@define-color blue     #8fcff7;
+@define-color bluedeep #4fa6dd;
+@define-color mint     #7fd6b4;
+@define-color text     #5b3b6e;
+@define-color dim      #a98bbb;
+
+* {
+    border: none;
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans", "Noto Sans CJK JP", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 0;
+}
+
+window#waybar {
+    background: @base;
+    color: @text;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 143, 200, 0.55);
+    transition: background 0.3s;
+}
+
+tooltip {
+    background: rgba(255, 245, 251, 0.96);
+    border: 2px solid @pink;
+    border-radius: 14px;
+}
+tooltip label { color: @text; padding: 4px; }
+
+/* pastillitas */
+#custom-angel, #workspaces, #window, #clock, #mpris, #sys, #pulseaudio,
+#backlight, #network, #bluetooth, #battery, #tray, #custom-power {
+    background: @pill;
+    color: @text;
+    padding: 0 12px;
+    margin: 5px 0;
+    border-radius: 14px;
+    transition: all 0.25s ease;
+}
+
+#custom-angel {
+    margin-left: 6px;
+    padding: 0 14px;
+    font-size: 17px;
+    color: #fff;
+    background: linear-gradient(135deg, @pink, @lav, @blue);
+}
+#custom-angel:hover { background: linear-gradient(135deg, @blue, @lav, @pink); }
+
+/* corazoncitos de workspaces */
+#workspaces { padding: 0 4px; }
+#workspaces button {
+    color: @dim;
+    padding: 0 6px;
+    margin: 3px 1px;
+    border-radius: 10px;
+    background: transparent;
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(.34, 1.56, .64, 1);
+}
+#workspaces button.active {
+    color: #fff;
+    padding: 0 14px;
+    background: linear-gradient(135deg, @pink, @lav);
+}
+#workspaces button.urgent { color: #fff; background: @pinkdeep; }
+#workspaces button:hover  { color: @pinkdeep; background: rgba(255, 143, 200, 0.18); box-shadow: none; }
+
+#window { color: @lavdeep; font-style: italic; }
+window#waybar.empty #window { background: transparent; }
+
+#clock {
+    padding: 0 18px;
+    color: #fff;
+    font-size: 14px;
+    background: linear-gradient(90deg, @lav, @pink, @lav);
+}
+
+#mpris            { color: @pinkdeep; }
+#mpris.paused     { color: @dim; }
+#cpu, #memory, #temperature { color: @lavdeep; padding: 0 6px; }
+#temperature.critical { color: #e0457b; }
+
+#pulseaudio       { color: @pinkdeep; }
+#pulseaudio.muted { color: @dim; }
+#backlight        { color: #d6a23a; }
+#network          { color: @bluedeep; }
+#network.disconnected { color: @dim; }
+#bluetooth        { color: @bluedeep; }
+#bluetooth.off, #bluetooth.disabled { color: @dim; }
+
+#battery          { color: #3fae86; }
+#battery.charging, #battery.plugged { color: @bluedeep; }
+#battery.warning:not(.charging)  { color: #d68a2e; }
+#battery.critical:not(.charging) {
+    color: #fff;
+    background: #ff6fa8;
+    animation: blink 0.9s ease-in-out infinite alternate;
+}
+@keyframes blink { to { background: @lav; } }
+
+#tray > .needs-attention { background: @pink; border-radius: 8px; }
+
+#custom-power {
+    margin-right: 6px;
+    padding: 0 14px;
+    font-size: 15px;
+    color: #fff;
+    background: linear-gradient(135deg, @lav, @pink);
+}
+
+#custom-angel:hover, #pulseaudio:hover, #backlight:hover, #network:hover,
+#bluetooth:hover, #battery:hover, #mpris:hover, #clock:hover, #custom-power:hover {
+    box-shadow: inset 0 0 0 2px rgba(255, 143, 200, 0.7);
+}
+
+/* ───────────── 🎀 dock de abajo ───────────── */
+window#waybar.dock {
+    background: transparent;
+    border: none;
+}
+#dock {
+    background: rgba(255, 245, 251, 0.80);
+    border: 2px solid rgba(255, 143, 200, 0.55);
+    border-radius: 24px;
+    padding: 4px 10px;
+    margin: 0 4px;
+}
+#custom-start {
+    font-size: 20px;
+    color: #fff;
+    padding: 0 13px;
+    margin: 4px 4px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, @pink, @lav, @blue);
+    transition: all 0.25s ease;
+}
+#custom-start:hover { background: linear-gradient(135deg, @blue, @lav, @pink); }
+#custom-sep { color: rgba(195, 166, 245, 0.6); padding: 0 6px; font-size: 18px; }
+
+#image {
+    padding: 4px 7px;
+    margin: 2px 1px;
+    border-radius: 14px;
+    transition: all 0.25s cubic-bezier(.34, 1.56, .64, 1);
+}
+#image:hover { background: rgba(255, 143, 200, 0.22); }
+
+#taskbar button {
+    padding: 3px 7px;
+    margin: 2px 1px;
+    border-radius: 14px;
+    border-bottom: 3px solid transparent;
+    background: transparent;
+    transition: all 0.25s cubic-bezier(.34, 1.56, .64, 1);
+}
+#taskbar button:hover  { background: rgba(255, 143, 200, 0.22); box-shadow: none; }
+#taskbar button.active {
+    background: rgba(195, 166, 245, 0.30);
+    border-bottom: 3px solid @pink;
+}
+#taskbar button.minimized { opacity: 0.5; }
+#taskbar.empty { padding: 0; }
+
+#custom-cc {
+    font-size: 18px;
+    color: #fff;
+    padding: 0 14px;
+    margin: 4px 4px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, @lav, @pink);
+    transition: all 0.25s ease;
+}
+#custom-cc.notification { background: linear-gradient(135deg, @pink, @pinkdeep); }
+#custom-cc.dnd-none, #custom-cc.dnd-notification { background: @dim; }
+
+/* ───────────── 🎀 apartado de info en el dock ───────────── */
+#clock.info, #disk.info, #network.info, #bluetooth.info,
+#pulseaudio.info, #battery.info {
+    background: rgba(255, 255, 255, 0.55);
+    padding: 0 11px;
+    margin: 8px 2px;
+    border-radius: 14px;
+    font-size: 13px;
+    transition: all 0.25s cubic-bezier(.34, 1.56, .64, 1);
+}
+#clock.info {
+    color: #fff;
+    background: linear-gradient(135deg, @lav, @pink);
+}
+#disk.info            { color: @lavdeep; }
+#disk.info.warning    { color: #d68a2e; }
+#disk.info.critical   { color: #fff; background: #ff6fa8; }
+#clock.info:hover, #disk.info:hover, #network.info:hover, #bluetooth.info:hover,
+#pulseaudio.info:hover, #battery.info:hover {
+    box-shadow: inset 0 0 0 2px rgba(255, 143, 200, 0.7);
+    margin-top: 5px; margin-bottom: 11px;
+}
+
+/* 🪽 minimizadas + ver escritorio */
+#custom-min, #custom-desk {
+    font-size: 17px;
+    color: @lavdeep;
+    padding: 0 10px;
+    margin: 6px 2px;
+    border-radius: 14px;
+    transition: all 0.25s cubic-bezier(.34, 1.56, .64, 1);
+}
+#custom-min.none { color: @dim; font-size: 15px; }
+#custom-min.has  { color: #fff; background: linear-gradient(135deg, @pink, @lav); }
+#custom-min:hover, #custom-desk:hover { background: rgba(255, 143, 200, 0.22); }
+#custom-min.has:hover { background: linear-gradient(135deg, @lav, @pink); }
+
+/* 🐱 logo de Nyarch en los botones de menú */
+#custom-start, #custom-angel {
+    background-image: url("__HOME__/.config/waybar/dock-icons/nyarch.png"),
+                      linear-gradient(135deg, rgba(255,255,255,0.95), rgba(253,232,244,0.95));
+    background-size: 78%, cover;
+    background-position: center, center;
+    background-repeat: no-repeat;
+    border: 2px solid rgba(255, 143, 200, 0.55);
+}
+#custom-start { min-width: 38px; padding: 0 4px; }
+#custom-angel { min-width: 30px; padding: 0 4px; }
+#custom-start:hover, #custom-angel:hover {
+    background-image: url("__HOME__/.config/waybar/dock-icons/nyarch.png"),
+                      linear-gradient(135deg, rgba(143,207,247,0.45), rgba(195,166,245,0.45));
+    background-size: 88%, cover;
+    border-color: @pink;
+}
+
+/* 🎶 cava en el dock */
+#custom-cava {
+    color: @pink;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 15px;
+    letter-spacing: -1px;
+    padding: 0 10px;
+    margin: 6px 2px;
+    border-radius: 14px;
+    background: alpha(@lav, 0.18);
+}
+
+
+/* 🍡 dock: los iconos crecen y rebotan al pasar el mouse */
+@keyframes angel-bounce {
+    0%   { -gtk-icon-transform: scale(1.0) translateY(0px); }
+    35%  { -gtk-icon-transform: scale(1.32) translateY(-7px); }
+    60%  { -gtk-icon-transform: scale(1.16) translateY(-2px); }
+    80%  { -gtk-icon-transform: scale(1.26) translateY(-5px); }
+    100% { -gtk-icon-transform: scale(1.22) translateY(-4px); }
+}
+#image, #taskbar button { -gtk-icon-transform: scale(1.0); }
+#image:hover, #taskbar button:hover {
+    -gtk-icon-transform: scale(1.22) translateY(-4px);
+    animation: angel-bounce 0.55s ease-out;
+}
+
+/* (˘ω˘) kaomojis de los escritorios */
+#workspaces button { font-size: 12px; font-family: "Noto Sans", "JetBrainsMono Nerd Font"; }
+#workspaces button.empty { opacity: 0.45; }
+#workspaces button.active { font-weight: bold; }

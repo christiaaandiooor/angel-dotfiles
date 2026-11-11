@@ -1,0 +1,7 @@
+/* 🪟 vista general de ventanas */
+@import "angel-walls.rasi"
+window   { width: 1180px; }
+entry    { placeholder: "¿A cuál ventana vamos? ♡"; }
+listview { columns: 4; lines: 2; }
+element-icon { size: 230px; }
+element-text { font: "JetBrainsMono Nerd Font 10"; }
