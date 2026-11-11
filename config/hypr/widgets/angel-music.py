@@ -15,25 +15,25 @@ ART = 96
 CSS = b"""
 window { background: transparent; }
 #card {
-  background: alpha(#1c0c1f, 0.86);
-  border: 2px solid alpha(#f37bff, 0.75);
+  background: alpha(#fdf5ff, 0.86);
+  border: 2px solid alpha(#f58fff, 0.75);
   border-radius: 24px;
   padding: 14px;
-  box-shadow: 0 4px 18px alpha(#d448e7, 0.25);
+  box-shadow: 0 4px 18px alpha(#d25de2, 0.25);
 }
-#title  { color: #c1c0dd; font: bold 13px "Noto Sans"; }
-#artist { color: #817eb8; font: 11px "Noto Sans"; }
-#src    { color: #d448e7; font: 10px "JetBrainsMono Nerd Font"; }
+#title  { color: #3d3b6e; font: bold 13px "Noto Sans"; }
+#artist { color: #8d8bbb; font: 11px "Noto Sans"; }
+#src    { color: #d25de2; font: 10px "JetBrainsMono Nerd Font"; }
 button {
-  background: alpha(#2d1230, 0.7); color: #d448e7; border: none; box-shadow: none;
+  background: alpha(#fad6ff, 0.7); color: #d25de2; border: none; box-shadow: none;
   border-radius: 999px; min-width: 30px; min-height: 30px; padding: 0;
   font: 15px "JetBrainsMono Nerd Font";
 }
-button:hover { background: #f37bff; color: #fff; }
-#play { background: #f37bff; color: #fff; min-width: 38px; min-height: 38px; }
-#play:hover { background: #d448e7; }
-progressbar trough   { background: alpha(#8fa5f8, 0.25); border-radius: 6px; min-height: 5px; }
-progressbar progress { background: linear-gradient(to right, #f37bff, #8fa5f8); border-radius: 6px; min-height: 5px; }
+button:hover { background: #f58fff; color: #fff; }
+#play { background: #f58fff; color: #fff; min-width: 38px; min-height: 38px; }
+#play:hover { background: #d25de2; }
+progressbar trough   { background: alpha(#a6b7f5, 0.25); border-radius: 6px; min-height: 5px; }
+progressbar progress { background: linear-gradient(to right, #f58fff, #a6b7f5); border-radius: 6px; min-height: 5px; }
 """
 
 
