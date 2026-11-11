@@ -70,8 +70,8 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("~/.config/hypr/scripts/battery-watch.sh")          -- avisos de batería baja
   hl.exec_cmd("python3 ~/.config/hypr/widgets/angel-music.py")     -- widget de música (escritorio)
   hl.exec_cmd("python3 ~/.config/hypr/widgets/angel-desk.py")      -- widgets: reloj, clima, clases, etc.
-  hl.exec_cmd("hyprctl setcursor Angel-Cursor 24")
-  hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme Angel-Cursor")
+  hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 24")
+  hl.exec_cmd("gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice")
   hl.exec_cmd("gsettings set org.gnome.desktop.interface font-name 'Noto Sans 10'")
 end)
 
@@ -84,8 +84,8 @@ end)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("XCURSOR_THEME", "Angel-Cursor")
-hl.env("HYPRCURSOR_THEME", "Angel-Cursor")
+hl.env("XCURSOR_THEME", "Bibata-Modern-Ice")
+hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Ice")
 hl.env("QT_QPA_PLATFORMTHEME", "kde")
 hl.env("QT_QPA_PLATFORMTHEME_QT6", "kde")
 
