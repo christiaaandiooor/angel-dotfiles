@@ -1,133 +1,57 @@
-
+// ˚₊‧꒰ა Angel fastfetch ໒꒱ ‧₊˚   (backup: config.jsonc.bak-lindo)
 {
-"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-"logo": {
-  "type": "kitty-direct",
-  "source": "~/.config/fastfetch/logos/k-angel.png",
-  "width": 38,
-  "padding": {
-    "top": 1,
-    "left": 2,
-    "right": 3
-  }
-},
-"display": {
-"separator": " 󰑃  "
-},
-"modules": [
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "kitty-direct",
+    "source": "~/.config/fastfetch/logos/k-angel.png",
+    "width": 38,
+    "padding": { "top": 2, "left": 2, "right": 4 }
+  },
+  "display": {
+    "separator": "  ",
+    "key": { "width": 16 },
+    "color": { "separator": "#e25da4" }
+  },
+  "modules": [
     "break",
     {
-    "type": "os",
-    "key": " DISTRO",
-    "keyColor": "yellow"
+      "type": "title",
+      "format": "   (≧◡≦) ♡ {user-name-colored}{at-symbol-colored}{host-name-colored}",
+      "color": { "user": "#ff8fc8", "at": "#c3a6f5", "host": "#8fcff7" }
     },
-    {
-    "type": "kernel",
-    "key": "│ ├",
-    "keyColor": "yellow"
-    },
-    {
-    "type": "packages",
-    "key": "│ ├󰏖",
-    "keyColor": "yellow"
-    },
-    {
-    "type": "shell",
-    "key": "│ └",
-    "keyColor": "yellow"
-    },
-    {
-    "type": "wm",
-    "key": " DE/WM",
-    "keyColor": "blue"
-    },
-    {
-    "type": "wmtheme",
-    "key": "│ ├󰉼",
-    "keyColor": "blue"
-    },
-    {
-    "type": "icons",
-    "key": "│ ├󰀻",
-    "keyColor": "blue"
-    },
-    {
-        "type": "cursor",
-        "key": "│ ├",
-        "keyColor": "blue",
-    },
-    {
-        "type": "terminalfont",
-        "key": "│ ├",
-        "keyColor": "blue",
-    },
-    {
-    "type": "terminal",
-    "key": "│ └",
-    "keyColor": "blue"
-    },
-    {
-    "type": "host",
-    "key": "󰌢 SYSTEM",
-    "keyColor": "green"
-    },
-    {
-    "type": "cpu",
-    "key": "│ ├󰻠",
-    "keyColor": "green"
-    },
-    {
-    "type": "gpu",
-    "key": "│ ├󰻑",
-    "format": "{2}",
-    "keyColor": "green"
-    },
-    {
-            "type": "display",
-    "key": "│ ├󰍹",
-    "keyColor": "green",
-    "compactType": "original-with-refresh-rate"
-    },
-    {
-    "type": "memory",
-    "key": "│ ├󰾆",
-    "keyColor": "green"
-    },
-    {
-    "type": "swap",
-    "key": "│ ├󰓡",
-    "keyColor": "green"
-    },
-    {
-    "type": "uptime",
-    "key": "│ ├󰅐",
-    "keyColor": "green"
-    },
-    {
-    "type": "display",
-    "key": "│ └󰍹",
-    "keyColor": "green"
-    },
-    {
-    "type": "sound",
-    "key": " AUDIO",
-    "format": "{2}",
-    "keyColor": "magenta"
-    },
-    {
-    "type": "player",
-    "key": "│ ├󰥠",
-    "keyColor": "magenta"
-    },
-    {
-    "type": "media",
-    "key": "│ └󰝚",
-    "keyColor": "magenta"
-    },
-    {
-    "type": "custom",
-    "format": "\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m  \u001b[38m  \u001b[39m  \u001b[39m    \u001b[38m  \u001b[37m  \u001b[36m  \u001b[35m  \u001b[34m  \u001b[33m  \u001b[32m  \u001b[31m  \u001b[90m "
-    },
+    { "type": "custom", "format": "{#38;2;195;166;245}   ˚₊‧꒰ა ☆ ─────────────────────── ☆ ໒꒱‧₊˚" },
+
+    { "type": "custom", "format": "{#1;38;2;255;143;200}╭─  Sistema" },
+    { "type": "os",       "key": "│ 󰣇  Distro",    "keyColor": "#ff8fc8", "format": "{name} {arch}" },
+    { "type": "kernel",   "key": "│   Kernel",    "keyColor": "#ff8fc8" },
+    { "type": "packages", "key": "│ 󰏖  Paquetes",  "keyColor": "#ff8fc8" },
+    { "type": "shell",    "key": "│   Shell",     "keyColor": "#ff8fc8" },
+    { "type": "uptime",   "key": "│ 󰅐  Despierta", "keyColor": "#ff8fc8" },
+
+    { "type": "custom", "format": "{#1;38;2;195;166;245}├─ 󰧨 Escritorio" },
+    { "type": "wm",           "key": "│   Ventanas", "keyColor": "#c3a6f5" },
+    { "type": "theme",        "key": "│ 󰉼  Tema",     "keyColor": "#c3a6f5" },
+    { "type": "icons",        "key": "│ 󰀻  Iconos",   "keyColor": "#c3a6f5" },
+    { "type": "cursor",       "key": "│ 󰆿  Cursor",   "keyColor": "#c3a6f5" },
+    { "type": "terminal",     "key": "│   Terminal", "keyColor": "#c3a6f5" },
+    { "type": "terminalfont", "key": "│   Fuente",   "keyColor": "#c3a6f5" },
+
+    { "type": "custom", "format": "{#1;38;2;143;207;247}├─  Hardware" },
+    { "type": "host",    "key": "│ 󰌢  Equipo",   "keyColor": "#8fcff7" },
+    { "type": "cpu",     "key": "│ 󰻠  CPU",      "keyColor": "#8fcff7" },
+    { "type": "gpu",     "key": "│ 󰢮  GPU",      "keyColor": "#8fcff7", "format": "{name}" },
+    { "type": "display", "key": "│ 󰍹  Pantalla", "keyColor": "#8fcff7", "compactType": "original-with-refresh-rate" },
+    { "type": "memory",  "key": "│ 󰾆  Memoria",  "keyColor": "#8fcff7" },
+    { "type": "disk",    "key": "│ 󰋊  Disco",    "keyColor": "#8fcff7", "folders": "/" },
+    { "type": "battery", "key": "│ 󰁹  Batería",  "keyColor": "#8fcff7" },
+
+    { "type": "custom", "format": "{#1;38;2;226;93;164}├─ 󰝚 Música" },
+    { "type": "sound",  "key": "│ 󰕾  Audio",    "keyColor": "#e25da4", "format": "{name}" },
+    { "type": "media",  "key": "│ 󰎆  Sonando",  "keyColor": "#e25da4" },
+
+    { "type": "custom", "format": "{#38;2;255;143;200}╰───────────── ♡ ─────────────" },
     "break",
-    ]
+    { "type": "custom", "format": "   {#38;2;255;143;200}♥  {#38;2;226;93;164}♥  {#38;2;195;166;245}♥  {#38;2;143;207;247}♥  {#38;2;169;139;187}♥  {#38;2;91;59;110}♥{#}   {#38;2;169;139;187}Hola de nuevo ✧˖°" },
+    "break"
+  ]
 }
