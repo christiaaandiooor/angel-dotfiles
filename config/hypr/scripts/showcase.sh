@@ -16,10 +16,9 @@ ws=1; while grep -qx "$ws" <<<"$used"; do ws=$((ws + 1)); done
 
 # medidas pensadas para 1920x1080 con la barra de arriba, el dock y hyprbars (26px)
 hyprctl dispatch "hl.dsp.focus({ workspace = \"$ws\" })" >/dev/null
-open() { # clase  x y w h  comando...  (van saliendo una por una ✧)
+open() { # clase  x y w h  comando...
   local cls=$1 x=$2 y=$3 w=$4 h=$5; shift 5
   hyprctl dispatch "hl.dsp.exec_cmd(\"[workspace $ws silent; float; size $w $h; move $x $y] kitty --class showcase-$cls -o font_size=10 $*\")" >/dev/null
-  sleep 0.15
 }
 
 # el lugar sorpresa: cada vez sale algo distinto
@@ -30,7 +29,7 @@ juguetes=(
 )
 juguete=${juguetes[RANDOM % ${#juguetes[@]}]}
 
-open ff     24   90  820 480  --hold sh -c "'sleep 0.5; ~/.config/fastfetch/centrado.py'"
+open ff     24   90  820 480  --hold sh -c "'sleep 0.2; ~/.config/fastfetch/centrado.py'"
 open btop   858  90 1038 480  btop
 open musica 24   610 400 380  ~/.config/hypr/scripts/showcase-musica.py
 open cava   438  610 406 380  cava
