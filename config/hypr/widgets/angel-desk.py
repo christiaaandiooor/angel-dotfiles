@@ -59,37 +59,37 @@ FRASES = [
 CSS = b"""
 window { background: transparent; }
 .card {
-  background: alpha(#f5fdff, 0.82);
-  border: 2px solid alpha(#8fe4ff, 0.6);
+  background: alpha(#fff5fa, 0.82);
+  border: 2px solid alpha(#ff8fbf, 0.6);
   border-radius: 24px;
   padding: 14px 18px;
-  box-shadow: 0 4px 18px alpha(#5dc5e2, 0.18);
-  color: #3b6e4e;
+  box-shadow: 0 4px 18px alpha(#e25d99, 0.18);
+  color: #5f3b6e;
   font-family: "JetBrainsMono Nerd Font";
 }
-.h      { color: #5dc5e2; font-weight: 800; font-size: 12px; }
-.dim    { color: #8bbb9d; font-size: 11px; }
+.h      { color: #e25d99; font-weight: 800; font-size: 12px; }
+.dim    { color: #ad8bbb; font-size: 11px; }
 .big    { font-size: 15px; font-weight: 800; }
-.clock  { font-size: 72px; font-weight: 800; color: #5dc5e2; letter-spacing: -2px; }
-.sec    { font-size: 22px; font-weight: 800; color: #a6f5af; }
-.temp   { font-size: 34px; font-weight: 800; color: #5dc5e2; }
+.clock  { font-size: 72px; font-weight: 800; color: #e25d99; letter-spacing: -2px; }
+.sec    { font-size: 22px; font-weight: 800; color: #caa6f5; }
+.temp   { font-size: 34px; font-weight: 800; color: #e25d99; }
 .emoji  { font-size: 40px; }
-.now    { background: alpha(#d6f6ff, 0.9); border-radius: 16px; padding: 10px 12px; }
-.next   { background: alpha(#dbfbdf, 0.7); border-radius: 14px; padding: 8px 12px; }
+.now    { background: alpha(#ffd6e9, 0.9); border-radius: 16px; padding: 10px 12px; }
+.next   { background: alpha(#eadbfb, 0.7); border-radius: 14px; padding: 8px 12px; }
 .quote  { font-size: 14px; font-style: italic; padding: 10px 22px; }
-progressbar trough   { background: alpha(#a6f5af, 0.22); border-radius: 8px; min-height: 9px; }
-progressbar progress { background: linear-gradient(to right, #e9f78f, #a6f5af, #8fe4ff); border-radius: 8px; min-height: 9px; }
+progressbar trough   { background: alpha(#caa6f5, 0.22); border-radius: 8px; min-height: 9px; }
+progressbar progress { background: linear-gradient(to right, #8fc6f7, #caa6f5, #ff8fbf); border-radius: 8px; min-height: 9px; }
 button {
-  background: alpha(#d6f6ff, 0.8); color: #5dc5e2; border: none; box-shadow: none;
+  background: alpha(#ffd6e9, 0.8); color: #e25d99; border: none; box-shadow: none;
   border-radius: 999px; padding: 4px 14px; font-weight: 800;
 }
-button:hover { background: #8fe4ff; color: #fff; }
-textview, textview text { background: transparent; color: #3b6e4e; font-size: 13px; }
-.notes { background: alpha(#e3c9ff, 0.9); border-color: alpha(#9f6bf5, 0.7); }
+button:hover { background: #ff8fbf; color: #fff; }
+textview, textview text { background: transparent; color: #5f3b6e; font-size: 13px; }
+.notes { background: alpha(#fff6c9, 0.9); border-color: alpha(#f5ce6b, 0.7); }
 .day     { font-size: 12px; padding: 3px 0; border-radius: 999px; }
-.weekend { color: #8bbb9d; }
-.today   { background: #8fe4ff; color: #ffffff; font-weight: 800; }
-.marked  { background: alpha(#a6f5af, 0.35); color: #5dc5e2; font-weight: 800; }
+.weekend { color: #ad8bbb; }
+.today   { background: #ff8fbf; color: #ffffff; font-weight: 800; }
+.marked  { background: alpha(#caa6f5, 0.35); color: #e25d99; font-weight: 800; }
 """
 
 
