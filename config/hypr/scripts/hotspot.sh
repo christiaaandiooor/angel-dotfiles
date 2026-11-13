@@ -7,6 +7,9 @@ IFACE=wlp4s0
 note() { notify-send -a osd -u low -t 3000 "$1" "$2"; }
 ask() { rofi -dmenu "$@" -theme "$THEME" -theme-str 'listview{enabled:false;}' </dev/null; }
 
+# por dónde sale el internet (cable si hay, si no el wifi)
+inet_iface() { ip route show default | sort -t' ' -k9,9n -k11,11n | awk '{for(i=1;i<=NF;i++) if($i=="dev"){print $(i+1); exit}}'; }
+
 running() { pgrep -x create_ap >/dev/null || pgrep -f "^/bin/bash /usr/bin/create_ap" >/dev/null; }
 
 config() {
@@ -31,7 +34,7 @@ on() {
     # shellcheck disable=SC1090
     source "$CONF"
     note "󰀃  Prendiendo hotspot…" "Un momentito ✧"
-    if pkexec /usr/bin/create_ap --daemon --logfile /tmp/angel-hotspot.log "$IFACE" "$IFACE" "$SSID" "$PASS" >/dev/null 2>&1; then
+    if pkexec /usr/bin/create_ap --daemon --logfile /tmp/angel-hotspot.log "$IFACE" "$(inet_iface)" "$SSID" "$PASS" >/dev/null 2>&1; then
         for _ in $(seq 20); do
             ip link show | grep -q "ap0\|x0$IFACE" && break
             grep -q "AP-ENABLED" /tmp/angel-hotspot.log 2>/dev/null && break
