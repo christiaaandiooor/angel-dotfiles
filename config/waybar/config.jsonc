@@ -215,6 +215,7 @@
                 "image#spotify",
                 "image#discord",
                 "image#obsidian",
+                "image#hotspot",
                 "custom/sep",
                 "wlr/taskbar",
                 "custom/min",
@@ -308,6 +309,14 @@
             "path": "__HOME__/.config/waybar/dock-icons/discord.png",
             "size": 30,
             "on-click": "setsid discord >/dev/null 2>&1 &",
+            "interval": 86400
+        },
+        "image#hotspot": {
+            "path": "__HOME__/.config/waybar/dock-icons/wihotspot.png",
+            "size": 30,
+            "tooltip-format": "Hotspot ✧ Clic: Abrir app · Clic derecho: Prender/apagar",
+            "on-click": "setsid wihotspot-gui >/dev/null 2>&1 &",
+            "on-click-right": "~/.config/hypr/scripts/hotspot.sh toggle",
             "interval": 86400
         },
         "image#obsidian": {

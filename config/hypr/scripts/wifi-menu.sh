@@ -47,17 +47,24 @@ main() {
         else rows+=("$(sig_icon "$s")  $(esc "$ssid")$lock$extra"); fi
         ssids+=("$ssid")
     done
-    local nnet=${#rows[@]}
-    rows+=("<span alpha='70%'>󰑓  buscar redes otra vez</span>"
+    local nnet=${#rows[@]} hs
+    if [ "$("$HOME/.config/hypr/scripts/hotspot.sh" status)" = on ]; then
+        hs="<span color='#e25da4'>󰀃  Hotspot prendido</span>  <span alpha='55%' size='small'>Toca para apagar</span>"
+    else hs="<span alpha='70%'>󰀃  Compartir internet (hotspot)</span>"; fi
+    rows+=("$hs"
+           "<span alpha='70%'>󰒓  Cambiar nombre/contraseña del hotspot</span>"
+           "<span alpha='70%'>󰑓  buscar redes otra vez</span>"
            "<span alpha='70%'>󰖪  apagar wifi</span>"
            "<span alpha='70%'>󰒓  ajustes avanzados</span>")
 
     sel=$(printf '%s\n' "${rows[@]}" | menu -p "󰖩" -mesg "$mesg") || exit
     if (( sel < nnet )); then net_action "${ssids[sel]}" "$cur"
     else case $((sel - nnet)) in
-        0) note "󰑓  Buscando redes…" "Un momentito ✧"; main yes ;;
-        1) nmcli radio wifi off; note "󰖪  Wifi apagado" "(˘ω˘) zzz" ;;
-        2) setsid nm-connection-editor >/dev/null 2>&1 & ;;
+        0) "$HOME/.config/hypr/scripts/hotspot.sh" toggle ;;
+        1) "$HOME/.config/hypr/scripts/hotspot.sh" config ;;
+        2) note "󰑓  Buscando redes…" "Un momentito ✧"; main yes ;;
+        3) nmcli radio wifi off; note "󰖪  Wifi apagado" "(˘ω˘) zzz" ;;
+        4) setsid nm-connection-editor >/dev/null 2>&1 & ;;
     esac; fi
 }
 
