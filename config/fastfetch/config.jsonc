@@ -9,7 +9,7 @@
   },
   "display": {
     "separator": "  ",
-    "key": { "width": 16 },
+    "key": { "width": 18 },
     "color": { "separator": "#e25da4" }
   },
   "modules": [

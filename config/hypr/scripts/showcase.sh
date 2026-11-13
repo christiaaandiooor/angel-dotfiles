@@ -19,7 +19,7 @@ open() { # clase  x y w h  comando...
   local cls=$1 x=$2 y=$3 w=$4 h=$5; shift 5
   hyprctl dispatch "hl.dsp.exec_cmd(\"[workspace $ws silent; float; size $w $h; move $x $y] kitty --class showcase-$cls -o font_size=10 $*\")" >/dev/null
 }
-open ff     24  90  820 480  --hold fastfetch
+open ff     24  90  820 480  --hold sh -c "'sleep 0.5; ~/.config/fastfetch/centrado.py'"
 open btop   858 90 1038 480  btop
 open cava   24  610 820 380  cava
 open bonsai 858 610 512 380  cbonsai -l -i -w 1.5 -L 40
